@@ -121,8 +121,8 @@ export class Treatment {
         Observable.fromEvent(this._socket.getSocket(), 'request')
     )
     .subscribe(msg => {
-        console.log('Got req/res from botalk:' + msg);
-        this.messages.push(this.basicMessage('BOTALK', msg));
+        console.log('Got req/res from scooby:' + msg);
+        this.messages.push(this.basicMessage('SCOOBY', msg));
     });
     this.submittionStream = streams
     .submittion
@@ -142,7 +142,7 @@ export class Treatment {
   basicMessage(type, content): Message {
     return {
       content: content,
-      className: type === 'BOTALK' ? 'botalk' : 'client'
+      className: type === 'SCOOBY' ? 'scooby' : 'client'
     }
   }
 }

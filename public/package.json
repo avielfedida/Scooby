@@ -4,7 +4,7 @@
   "description": "Scooby client side code",
   "repository": {
     "type": "git",
-    "url": "git+https://bitbucket.org/aviel_fedida/botalk.git"
+    "url": "git+https://github.com/avielfedida/scooby.git"
   },
   "main": "config.js",
   "dependencies": {
