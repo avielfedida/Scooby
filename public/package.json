@@ -1,0 +1,22 @@
+{
+  "name": "botalk",
+  "version": "1.0.0",
+  "description": "Client side code",
+  "repository": {
+    "type": "git",
+    "url": "git+https://bitbucket.org/aviel_fedida/botalk.git"
+  },
+  "main": "config.js",
+  "dependencies": {
+    "angular2": "^2.0.0-beta.15",
+    "socket.io-client": "^1.4.5",
+    "systemjs": "^0.19.26"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aviel Fedida",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/aviel_fedida/botalk#readme"
+}

@@ -1,0 +1,21 @@
+<section class="wrapper">
+  <!--<div class="treatment">
+    <ul>
+       <li [ngClass]="msg.className" *ngFor="#msg of messages">{{msg.content}}</li>
+    </ul>
+    <form class="patient-form" (patientReady)="patientReady($event)"></form>
+  </div>-->
+  <nav class="nav">
+    <div class="default-nav">
+      <div class="main-nav">
+        <div class="main-nav-item"><a class="main-nav-item-link">BOTALK</a></div>
+      </div>
+    </div>
+  </nav>
+  <div class="inner">
+    <div class="content">
+       <div class="message-wrapper" [txt]="msg.content" [ngClass]="msg.className" *ngFor="#msg of messages"></div>           
+    </div>
+  </div>
+  <div class="bottom patient-form" (patientReady)="patientReady($event)"></div>
+</section>

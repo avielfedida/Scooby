@@ -1,0 +1,506 @@
+$blue: #2196F3;
+$dingy: #495B6A;
+$white: #ffffff;
+$purple: #673AB7;
+$yellow: #FFEB3B;
+$red: #F44336;
+$orange: #FF5722;
+$black: #333333;
+
+$nav: 100;
+
+$navHeight: 64px;
+
+$trans: 0.3s ease;
+
+* {
+  // The following rule used to remove blue highlight when clicking buttons
+  -webkit-tap-highlight-color: rgba(0,0,0,0); // http://stackoverflow.com/questions/16432909/remove-blue-highlight-over-html-image-when-clicked + https://css-tricks.com/snippets/css/remove-gray-highlight-when-tapping-links-in-mobile-safari/
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: $dingy;
+  }
+  100% {
+    background-color: $orange;
+  }
+}
+
+.wrapper {
+    height: 520px;
+    width: 320px;
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    background-color: white;
+    position: fixed;
+    box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.5);
+    transform: translate(-50%, -50%);
+    transition: $trans;
+  
+  .inner {
+    overflow: scroll;
+    height: 520px;
+    
+    padding-top: $navHeight;
+    background: darken($white, 5%);
+    
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+    //gotta hide windows scrollbars
+    
+    &::-webkit-scrollbar {
+      width: 0 !important
+    }
+    
+    .content {
+      padding: ($navHeight - ($navHeight/1.5)) / 2;
+      position: relative;
+      margin-bottom: $navHeight/2;
+    }
+  }
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $navHeight;
+  z-index: $nav;
+
+  .default-nav {
+    height: $navHeight;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: $nav + 10;
+
+    background-color: $red;
+    border-bottom: 3px solid darken($red, 10%);;
+    color: $white;
+
+    -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.1);
+    -moz-box-shadow:    0px 3px 3px 0px rgba(50, 50, 50, 0.1);
+    box-shadow:         0px 3px 3px 0px rgba(50, 50, 50, 0.1);
+
+    .main-nav {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: $navHeight;
+      top: 0;
+
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
+     
+      .main-nav-item {
+        
+        float: left;
+        height: $navHeight;
+        margin-left: 50px;
+        position: relative;
+
+        // text-align: center;
+        line-height: $navHeight;
+
+        .main-nav-item-link {
+          display: block;
+          position: relative;
+          height: $navHeight;
+          width: 100%;
+
+          text-align: center;
+          line-height: $navHeight;
+          text-decoration: none;
+          color: inherit;
+
+          transition: $trans;
+        }
+
+        transition: $trans;
+      }
+      
+      transition: $trans;
+    }
+
+    transition: $trans;
+  }
+  
+  transition: $trans;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: $navHeight;
+  background: $white;
+  
+  /* box-shadow: 0px -3px 3px 0px rgba(50, 50, 50, 0.1); */
+  
+  .input {
+    height: $navHeight;
+    background: $white;
+    border: none;
+    width: calc(100% - #{$navHeight});
+    position: absolute;
+    left: 0;
+    top: 0;
+    line-height: $navHeight;
+    padding-left: 20px;
+    font-weight: 300;
+    
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .send {
+    position: fixed;
+    height: $navHeight/1.5;
+    width: $navHeight/1.5;
+    border-radius: 50%;
+    border: 0;
+    background: $red;
+    color: $white;
+    
+    bottom: ($navHeight - ($navHeight/1.5)) / 2;
+    right: ($navHeight - ($navHeight/1.5)) / 2;
+    
+    &:before {
+      content: '';
+      background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/104946/ic_send_white_48dp.png') no-repeat center center;
+      background-size: $navHeight/2.5;
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+    }
+    
+    &:focus {
+      outline: none;
+    }
+    
+    &:hover {
+      cursor: pointer;
+    }
+    &.ongoing {
+        animation: pulse 1s infinite;
+    }
+  }
+}
+
+.message-wrapper {
+  transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+  position: relative;
+  overflow: hidden;
+  
+  width: 100%;
+  margin: (($navHeight - ($navHeight/1.5)) / 2) 0;
+  padding: (($navHeight - ($navHeight/1.5)) / 2) 0;
+
+  opacity: 0;
+  
+  .text-wrapper {
+    padding: ($navHeight - ($navHeight/1.5)) / 2;
+    min-height: $navHeight/1.5;
+    width: 60%;
+    margin: 0 ($navHeight - ($navHeight/1.5)) / 2;
+    box-shadow: 0px 1px 0px 0px rgba(50, 50, 50, 0.3);
+    border-radius: 2px;
+    font-weight: 300;
+    position: relative;
+    word-break: break-all;
+    
+    &:before {
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+  }
+  
+  &.botalk {
+    .circle-wrapper, .text-wrapper {
+      background: $red;
+      float: left;
+      color: $white;
+    }
+    
+    .text-wrapper {
+      &:before {
+        border-width: 0 10px 10px 0;
+        border-color: transparent $red transparent transparent;
+        position: absolute;
+        top: 0;
+        left: -9px;
+      }
+    }
+  }
+  
+  &.client {
+    .circle-wrapper, .text-wrapper {
+      background: $orange;
+      float: right;
+      color: $black;
+    }
+    
+    .text-wrapper {
+      background: $white;
+      
+      &:before {
+        border-width: 10px 10px 0 0;
+        border-color: $white transparent transparent transparent;
+        position: absolute;
+        top: 0;
+        right: -9px;
+      }
+    }
+  }
+}
+
+.tooltip {
+    background: $orange;
+    position: absolute;
+    color: $white;
+    left: 0;
+    top: -38px;
+    padding: 10px;
+    transition: opacity 1s;
+    -webkit-transition: opacity 1s;
+}
+
+
+@media (max-width: 768px) {
+  .wrapper {
+    height: 780px;
+    width: 480px;
+    .inner {
+      height: 780px;
+      overflow: scroll;
+    }
+  }
+}
+
+
+@media (max-width: 560px) {
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transform: none;
+    
+    .inner {
+      height: 100%;
+      height: 100vh;
+    }
+  }
+}
+
+// Preloader animation by: http://codepen.io/ispal/pen/mVaaJe
+
+// Variables
+$bar-color: $white;
+$ball-color: $white;
+// $bg-color: #EA4961; // Original color
+
+html {
+  height: 100%;
+}
+body {
+  margin: 0; 
+  height: 100%;
+  // background: $orange;
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f85032+0,f16f5c+50,f6290c+51,f02f17+71,e73827+100;Red+Gloss+%231 */
+  background: linear-gradient(
+    to bottom, 
+    #ffffff 0%, 
+    #ffffff 50%, 
+    $red 50%, 
+    $red 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  position: relative;
+  width: 75px;
+  height: 100px;
+  margin-bottom: -120px;
+  
+  &__bar {
+    position: absolute;
+    bottom: 0;
+    width: 10px;
+    height: 50%;
+    background: $bar-color;
+    transform-origin: center bottom;
+    box-shadow: 1px 1px 0 rgba(0,0,0,.2);
+    
+    @for $i from 1 through 5 { 
+       &:nth-child(#{$i}) {
+         left: ($i - 1) * 15px;
+         transform: scale(1,$i*.2);
+         animation: barUp#{$i} 4s infinite;
+        }
+    }
+    
+  }
+  
+  &__ball {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background: $ball-color;
+    border-radius: 50%;
+    animation: ball 4s infinite;
+  }
+}
+
+@keyframes ball {
+  0% {
+    transform: translate(0, 0);
+  }
+  5% {
+    transform: translate(8px, -14px);
+  }
+  10% {
+    transform: translate(15px, -10px)
+  }
+  17% {
+    transform: translate(23px, -24px)
+  }
+  20% {
+    transform: translate(30px, -20px)
+  }
+  27% {
+    transform: translate(38px, -34px)
+  }
+  30% {
+    transform: translate(45px, -30px)
+  }
+  37% {
+    transform: translate(53px, -44px)
+  }
+  40% {
+    transform: translate(60px, -40px)
+  }
+  50% {
+    transform: translate(60px, 0)
+  }
+  57% {
+    transform: translate(53px, -14px)
+  }
+  60% {
+    transform: translate(45px, -10px)
+  }
+  67% {
+    transform: translate(37px, -24px)
+  }
+  70% {
+    transform: translate(30px, -20px)
+  }
+  77% {
+    transform: translate(22px, -34px)
+  }
+  80% {
+    transform: translate(15px, -30px)
+  }
+  87% {
+    transform: translate(7px, -44px)
+  }
+  90% {
+    transform: translate(0, -40px)
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes barUp1 { 
+  0% {
+    transform: scale(1, .2);
+  }
+  40%{
+    transform: scale(1, .2);
+  }
+  50% {
+    transform: scale(1, 1);
+  }
+  90% {
+    transform: scale(1,1);
+  }
+  100% {
+    transform: scale(1,.2);
+  }
+}
+@keyframes barUp2 { 
+  0% {
+    transform: scale(1, .4);
+  }
+  40% {
+    transform: scale(1, .4);
+  }
+  50% {
+    transform: scale(1, .8);
+  }
+  90% {
+    transform: scale(1, .8);
+  }
+  100% {
+    transform: scale(1, .4);
+  }
+}
+@keyframes barUp3 { 
+  0% {
+    transform: scale(1, .6);
+  }
+  100% {
+    transform: scale(1, .6);
+  }
+}
+@keyframes barUp4 { 
+  0% {
+    transform: scale(1, .8);
+  }
+  40% {
+    transform: scale(1, .8);
+  }
+  50% {
+    transform: scale(1, .4);
+  }
+  90% {
+    transform: scale(1, .4);
+  }
+  100% {
+    transform: scale(1, .8);
+  }
+}
+@keyframes barUp5 { 
+  0% {
+    transform: scale(1, 1);
+  }
+  40% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1, .2);
+  }
+  90% {
+    transform: scale(1, .2);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
