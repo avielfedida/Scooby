@@ -7,7 +7,7 @@ npm-debug.log*
 # Editors
 .vscode
 
-# Self created database folders
+# Self created(and locally hosted) database folders
 db
 database
 
@@ -15,7 +15,7 @@ database
 typings
 
 # main JS files
-./*.js
+/*.js
 
 # scooby-questions
 scooby-questions/node_modules

@@ -1,11 +1,8 @@
 {
-  "name": "botalk-inserter",
+  "name": "scooby-questions",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
+  "author": "Aviel Fedida",
   "license": "MIT",
   "dependencies": {
     "htmlparser2": "^3.9.0",

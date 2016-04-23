@@ -2,8 +2,8 @@ var htmlparser = require("htmlparser2");
 var fs = require("fs");
 var mongoose = require('mongoose');
 var spanOn = false;
-const mongoPASS = new Buffer('bnVtZXJhdG9yNG1l', 'base64');
-const dbURI = "mongodb://aviel:" + mongoPASS + "@127.0.0.1:27017/botalk";
+const mongoPASS = new Buffer('BASE64_ENCODED_PASSWORD', 'base64');
+const dbURI = "mongodb://USERNAME:" + mongoPASS + "@127.0.0.1:27017/DATABASE_NAME";
 mongoose.connect(dbURI, {server:{auto_reconnect:false}});
 var Schema = mongoose.Schema;
 var resScheme = new Schema({
