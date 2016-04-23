@@ -1,7 +1,7 @@
 {
-  "name": "botalk",
+  "name": "scooby",
   "version": "1.0.0",
-  "description": "Client side code",
+  "description": "Scooby client side code",
   "repository": {
     "type": "git",
     "url": "git+https://bitbucket.org/aviel_fedida/botalk.git"
@@ -13,10 +13,8 @@
     "systemjs": "^0.19.26"
   },
   "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "author": "Aviel Fedida",
   "license": "MIT",
-  "homepage": "https://bitbucket.org/aviel_fedida/botalk#readme"
+  "homepage": "https://github.com/avielfedida/scooby"
 }
