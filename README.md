@@ -14,7 +14,7 @@ cd scooby-questions & npm install
 ### Third step:
 ```sh
 npm install -g typescript // If required
-tsc --watch index.ts dbCommunicator.ts normalizer.ts vald.ts --target ES6 --module commonjs
+tsc --watch index.ts dbCommunicator.ts normalizer.ts vald.ts --target ES5 --module commonjs
 ```
 
 ### Fourth step(sass is required):
