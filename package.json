@@ -1,0 +1,22 @@
+{
+  "name": "scooby",
+  "version": "1.0.0",
+  "description": "Scooby server side code",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.13.4",
+    "mongoose": "^4.4.3",
+    "socket.io": "^1.4.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avielfedida/scooby.git"
+  },
+  "homepage": "https://github.com/avielfedida/scooby"
+}

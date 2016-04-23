@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "watch": true
+    },
+    "files": [
+        "index.ts",
+        "vald.ts",
+        "normalizer.ts",
+        "dbCommunicator.ts"
+    ]
+}
