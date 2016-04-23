@@ -15,7 +15,7 @@ database
 typings
 
 # main JS files
-*.js
+./*.js
 
 # scooby-questions
 scooby-questions/node_modules
