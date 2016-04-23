@@ -8,5 +8,5 @@
     "htmlparser2": "^3.9.0",
     "mongoose": "^4.4.7"
   },
-  "description": ""
+  "description": "Helper to insert questions into scooby"
 }
