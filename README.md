@@ -22,7 +22,15 @@ tsc --watch index.ts dbCommunicator.ts normalizer.ts vald.ts --target ES6 --modu
 cd public & sass --watch styles
 ```
 
+### Initiate with questions
+Scooby can learn from scratch, meaning you would type something, it will say the same, and your response will be used for the next time when you ask scooby the same thing.
+
+But generally your advised to go into `scooby-questions` and run `node index.js`(**check first step before**), this script is used to fill Scooby with around 1800 questions, that way Scooby will be able to ask you things right away instead of imitating you to collect questions.
+
+There is `listToLISpanStructure.js`, this file used to help collecting more questions, for more information open the file and read the comments.
+
 ### Wrapping up:
+Go into the main folder and execute:
 ```sh
 node index.js
 ```
