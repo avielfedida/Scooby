@@ -12,13 +12,11 @@ import Normalizer = require('./normalizer');
 import Vald = require('./vald');
 import dbCommunicator from './dbCommunicator';
 
-// const mongoPASS = new Buffer('BASE64_ENCODED_PASSWORD', 'base64');
-const mongoPASS: Buffer = new Buffer('bnVtZXJhdG9yNG1l', 'base64');
+const mongoPASS = new Buffer('BASE64_ENCODED_PASSWORD', 'base64');
 const app = express();
 const server = http.Server(app);
 const io = socketio(server);
-// const dbURI = "mongodb://USERNAME:" + mongoPASS + "@127.0.0.1:27017/DATABASE_NAME";
-const dbURI = "mongodb://aviel:" + mongoPASS + "@127.0.0.1:27017/botalk";
+const dbURI = "mongodb://USERNAME:" + mongoPASS + "@127.0.0.1:27017/DATABASE_NAME";
 const publicBaseDir: string = __dirname + '/public';
 let flags = {
   sleep: false
