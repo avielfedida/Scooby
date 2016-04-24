@@ -331,6 +331,25 @@ body {
   justify-content: center;
 }
 
+.sleep-header {
+    position: fixed;
+    top: 30%;
+    left: 0;
+    color: #574343;
+    right: 0;
+    text-align: center;
+}
+
+.sleep-txt {
+  color: $red;
+  position: fixed;
+  top: 40%;
+  font-size: 1.1em;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
 .loader {
   position: relative;
   width: 75px;

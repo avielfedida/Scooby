@@ -10,7 +10,8 @@
   "dependencies": {
     "angular2": "^2.0.0-beta.15",
     "socket.io-client": "^1.4.5",
-    "systemjs": "^0.19.26"
+    "systemjs": "^0.19.26",
+    "typescript": "^1.8.10"
   },
   "devDependencies": {},
   "scripts": {},

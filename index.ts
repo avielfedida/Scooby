@@ -30,13 +30,18 @@ app.use((req, res, next) => {
 });
 app.use((req, res, next) => {
     if(flags.sleep) {
-        res.sendFile(baseWrapper('/sleep.html'));
+        // Only for the requests to '/'(meaning sleep.html) will respond with sleep.html, others like main.css will go into express.static
+        if(req.path === '/') {
+            res.sendFile(baseWrapper('/sleep.html'));
+        }
+        else {
+            next();
+        }
     }
     else {
        next();
     }
 });
-
 //Set our static file directory to public
 app.use(express.static(publicBaseDir));
 const RegExpAccuracyLevel: number = 1;

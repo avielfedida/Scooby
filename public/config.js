@@ -4,7 +4,7 @@ System.config({
     emitDecoratorMetadata: true
   },
   map: {
-    typescript: 'typescript.js'
+    typescript: 'node_modules/typescript/lib/typescript.js'
   },
   paths: {
     app: 'app'
