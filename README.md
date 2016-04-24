@@ -2,7 +2,7 @@
 Scooby is a really cool chat bot, it automatically learn to response by chatting experiences.
 
 ### First step:
-Go into `index.ts` and set `mongoPASS`, `USERNAME`, and `DATABASE_NAME`, also go into `scooby-questions/index.js` and change their as well.
+Go into `index.ts` and set `mongoPASS`, `USERNAME`, and `DATABASE_NAME`, also go into `scooby-questions/index.js` and change there as well.
 
 ### Second step(npm installs):
 ```sh
