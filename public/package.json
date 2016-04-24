@@ -1,10 +1,10 @@
 {
-  "name": "scooby",
+  "name": "Scooby",
   "version": "1.0.0",
   "description": "Scooby client side code",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/avielfedida/scooby.git"
+    "url": "git+https://github.com/avielfedida/Scooby.git"
   },
   "main": "config.js",
   "dependencies": {
@@ -16,5 +16,5 @@
   "scripts": {},
   "author": "Aviel Fedida",
   "license": "MIT",
-  "homepage": "https://github.com/avielfedida/scooby"
+  "homepage": "https://github.com/avielfedida/Scooby"
 }

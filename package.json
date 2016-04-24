@@ -1,5 +1,5 @@
 {
-  "name": "scooby",
+  "name": "Scooby",
   "version": "1.0.0",
   "description": "Scooby server side code",
   "main": "index.js",
@@ -14,7 +14,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/avielfedida/scooby.git"
+    "url": "git+https://github.com/avielfedida/Scooby.git"
   },
-  "homepage": "https://github.com/avielfedida/scooby"
+  "homepage": "https://github.com/avielfedida/Scooby"
 }
