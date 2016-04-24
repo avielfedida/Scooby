@@ -12,11 +12,13 @@ import Normalizer = require('./normalizer');
 import Vald = require('./vald');
 import dbCommunicator from './dbCommunicator';
 
-const mongoPASS = new Buffer('BASE64_ENCODED_PASSWORD', 'base64');
+// const mongoPASS = new Buffer('BASE64_ENCODED_PASSWORD', 'base64');
+const mongoPASS: Buffer = new Buffer('bnVtZXJhdG9yNG1l', 'base64');
 const app = express();
 const server = http.Server(app);
 const io = socketio(server);
-const dbURI = "mongodb://USERNAME:" + mongoPASS + "@127.0.0.1:27017/DATABASE_NAME";
+// const dbURI = "mongodb://USERNAME:" + mongoPASS + "@127.0.0.1:27017/DATABASE_NAME";
+const dbURI = "mongodb://aviel:" + mongoPASS + "@127.0.0.1:27017/botalk";
 const publicBaseDir: string = __dirname + '/public';
 let flags = {
   sleep: false
@@ -95,7 +97,7 @@ server.listen(config.port, () => {
         // I can't use close event as close event will be called only when database already opened and suddenly closed, when I try to reconnect and fail only disconnected event get called.
         // Also error handler will only be called if I started the server and the database is down, disconnected will always be called.
         dbCom.db.on('disconnected', () => {
-            console.error("/************ ERROR *************/\n", "Database is down" , "\n/********************************/");
+            console.error("/************ DISCONNECTION *************/\n", "Unable to connect into the database" , "\n/********************************/");
             flags.sleep = true;
             console.log('Database disconnected, retry in 5...');
             io.engine.close();
@@ -119,8 +121,13 @@ server.listen(config.port, () => {
                 mongoose.connect(dbURI, {server:{auto_reconnect:false}});
             }, 5000);
         });
-        // The reason I use this event is to prevent errors from breaking the server while for example I initiate the server while database is down.
-        dbCom.db.on('error', () => {});
+        /*
+        The main reason I use this event is to prevent errors from breaking the server while for example I initiate the server while database is down or incorrect password.
+        Notice that no matter if db down after server initiated, password/username are wrong or db is down before even starting the server, this callback will be called 
+        for 2 cases, password/username are wrong and db is down before server started, both cases the error will be more concise than disconnected handler that just indicate that 
+        there is no database connection, anyway, only when db down after server started disconnected will called alone, otherwise(both other cases) both handlers will be called.
+        */
+        dbCom.db.on('error', e => { console.error("/************ DB_ERROR *************/\n", e , "\n/********************************/"); });
         dbCom.db.on('open', () => {
             flags.sleep = false;
             console.log('Database connection established');
