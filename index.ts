@@ -51,6 +51,15 @@ function baseWrapper(appendThis: string): string {
     return publicBaseDir + appendThis;
 }
 
+// If the Node process ends, close the Mongoose connection 
+process.on('SIGINT', () => {
+    mongoose.connection.close(() => {
+        console.log('Mongoose default connection disconnected through app termination');
+        process.exit(0);
+    });
+}); 
+
+
 server.listen(config.port, () => {
     // Start listening...
     console.log("Started listening on port "+config.port+"...");
