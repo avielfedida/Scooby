@@ -6,7 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "htmlparser2": "^3.9.0",
-    "mongoose": "^4.4.7"
+    "mongoose": "^5.10.3"
   },
   "description": "Helper to insert questions into scooby"
 }
